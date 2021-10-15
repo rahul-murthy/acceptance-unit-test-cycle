@@ -32,3 +32,11 @@ Scenario: can't find similar movies if we don't know director (sad path)
   When  I follow "Find Movies With Same Director"
   Then  I should be on the home page
   And   I should see "'Alien' has no director info"
+  
+Scenario: add a new movie
+  When I go to the new movie page
+  And  I fill in "Title" with "No Time to Die"
+  And  I fill in "Director" with "Cary Joji Fukunaga"
+  Then I press "Save Changes"
+  Then  I should be on the home page
+  And  I should see "No Time to Die"
